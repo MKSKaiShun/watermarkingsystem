@@ -1,0 +1,317 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+.navbar-brand {
+	font-size: 28px;
+	font-weight:bold;
+	text-transform: uppercase;
+	color: #cc6633;
+}
+.navbar-brand:hover {
+	color: #cc6633;	
+}
+.navbar-brand > img {
+	display: inline;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 150px;
+  background-color: #072d53;
+  border-top: 3px solid #228866;
+  color: #999;
+}
+#footer h4{
+	color: #cc6633;
+	margin-top: 20px;
+}
+#footer a {
+    color: #fff;
+    display: block;
+    font-size: 16px;
+}
+#footer a > i {
+    margin-right: 3px;
+    width: 20px;
+}
+.header-dropdown-menu{
+	padding: 15px;
+	background-color: #072D53;
+	color: #fff;
+}
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+    background-color: #00143A;
+    border-color: #337ab7;
+}
+
+/**********************************
+HOME
+***********************************/
+.jumbotron {
+	background-image: url("/images/backgrounds/blue-min.jpg");
+	background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.jumbotron h2 {
+	font-size: 48px;
+	font-weight: bold;
+	text-shadow: 0 1px #666, 0 2px 3px rgba(0, 0, 0, 0.6);
+
+}
+.jumbotron .btn {
+	margin-top: 60px;
+	margin-bottom: 60px;
+	font-size: 1.6em;
+	-webkit-box-shadow: 5px 5px 8px 0px rgba(51,51,51,1);
+	-moz-box-shadow: 5px 5px 8px 0px rgba(51,51,51,1);
+	box-shadow: 5px 5px 8px 0px rgba(51,51,51,1);
+}
+.jumbotron img.mockup {
+	max-height: 400px;
+}
+.section {
+	padding: 120px 0;
+}
+.section h2 {
+	margin-bottom: 80px;
+}
+#features, .dark {
+	background-color: rgb(36, 36, 36);
+}
+#features .feature {
+	text-align: center;
+	color: #fff;
+	padding: 15px;
+}
+#features .feature img {
+	width: 200px;
+}
+#reviews {
+	background-color: #fff;
+}
+#reviews .row {
+	margin-bottom: 20px;
+}
+#reviews .brand img {
+	max-width: 100%;
+	margin: 0 auto;
+}
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+#small {
+	background-color: #eee;
+}
+#small .row div {
+	padding: 30px;
+}
+#small .row div img {
+	display: block;
+	float: left;
+	margin-right: 20px;
+}
+#small .row div h4 {
+	margin-top: 0;
+}
+
+/**********************************
+MENU
+***********************************/
+#menu .navbar{
+	border-radius: 0;
+	margin-bottom: 0;
+	background-color: #e0e0e0;
+	border: none;
+	min-height: 0;
+}
+#menu .btn-header {
+	border-radius: 0;
+	border-top: none;
+	border-bottom: none;
+	background-color: #eee;
+	padding: 8px;
+	font-size: 1.2em;
+	width: 115px;
+	color: #000;
+	text-align: center;
+	z-index: 2;
+}
+#menu .btn-header:not(.disabled):hover {
+	background-color: #fff;
+}
+#menu .btn i,#menu .btn img{
+	display: block;
+	margin: 0 auto;
+	height: 48px;
+	width: 48px;
+}
+#menu .dropdown-menu {
+	border-radius: 0;
+	background-color: #eee;
+	padding: 10px;
+}
+
+
+a.personal-template{
+	display:block;
+	padding: 5px;
+}
+/**********************************
+ERRORS
+***********************************/
+.tooBigList ul li {
+	font-size: 14px;
+}
+/**********************************
+VIEWER
+***********************************/
+#viewer {
+	position: relative;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: -moz-radial-gradient(center, ellipse cover, rgba(87,87,87,1) 0%, rgba(36,36,36,1) 100%); /* ff3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(87,87,87,1)), color-stop(100%, rgba(36,36,36,1))); /* safari4+,chrome */
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(87,87,87,1) 0%, rgba(36,36,36,1) 100%); /* safari5.1+,chrome10+ */
+	background: -o-radial-gradient(center, ellipse cover, rgba(87,87,87,1) 0%, rgba(36,36,36,1) 100%); /* opera 11.10+ */
+	background: -ms-radial-gradient(center, ellipse cover, rgba(87,87,87,1) 0%, rgba(36,36,36,1) 100%); /* ie10+ */
+	background: radial-gradient(ellipse at center, rgba(87,87,87,1) 0%, rgba(36,36,36,1) 100%); /* w3c */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#575757', endColorstr='#242424',GradientType=1 ); /* ie6-9 */
+}
+#container {
+	background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 1);
+    position: relative;
+}
+
+#container .watermark {
+	background-repeat: no-repeat;
+    background-size: cover;
+    cursor: move;
+    position: absolute;
+}
+.watermark.active {
+	box-shadow: 0 0 6px #ccc;
+}
+.popover {
+	max-width: 250px;
+	min-width: 250px;
+	background: #666;
+	color: #fff;
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+.popover label {
+	text-shadow: 2px 2px 4px #000;
+}
+.slider.slider-horizontal {
+	margin-top: 7px;
+	width: 100%;
+}
+.sp-replacer {
+    width: 50px;
+    height: 34px;
+    border-radius: 0 6px 6px 0;
+    border-color: #ccc;
+    border-left: none;
+}
+.sp-preview {
+	height: 24px;
+}
+.sp-dd {
+	line-height: 20px;
+}
+.tooltip-inner {
+	background-color: #fff;
+	color: #000;
+}
+/**********************************
+GALLERY
+***********************************/
+#gallery {
+	position: fixed;
+	bottom:0;
+	left: 0;
+	right:0;
+	border-top: 1px solid #e7e7e7;
+	background-color: rgb(36, 36, 36);
+	height: 96px;
+	text-align: center;
+}
+.galleryImageHolder {
+	display: inline-block;
+	margin-right:1px;
+	opacity: 0.7;
+	cursor: pointer;
+}
+.galleryImageHolder:hover, .galleryImageHolder.active{
+	opacity: 1;
+}
+.galleryImage {
+	height: 94px;
+	width: 94px;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position: center center;
+}
+
+/**********************************
+SAVE
+***********************************/
+#saveModal .modal-body .saveGallery{
+	max-height: 600px;
+	overflow: auto;
+}
+
+#saveModal .saveImage {
+	width: 280px;
+	height: 200px;
+	float: left;
+	text-align: center;
+	color: #fff;	
+	position: relative;
+	margin: 3px 3px 0 0;
+}
+#saveModal .saveImage .text{
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	text-align: center;
+}
+
+#saveModal .saveImage img.prerender{
+	max-width: 100%;
+	max-height: 100%;
+	position: relative;
+}
+
+#saveModal .saveImage.saving img.prerender{
+	filter: url(/images/blur.svg#blur);
+	-webkit-filter: blur(3px);
+	filter: blur(3px);
+}
+
+#saveModal .saveImage.done .text{
+	display: none;
+}
+.rendered {
+	display: block;
+	position: absolute !important;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
