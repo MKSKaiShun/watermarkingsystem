@@ -86,7 +86,8 @@ var encode = function() {
     alert('Done! When the image appears, save and share it with someone.');
 
     output.src = canvas.toDataURL();
-	document.getElementById('src').value=output.src;
+	//document.getElementById('src').value=output.src;
+	document.getElementById('data').value=output.src;
 	
 	document.getElementById('imessage').value=inmessage;
 	document.getElementById('enmessage').value=message;

@@ -5,7 +5,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include ('modal_signup_login.html');?>
+<?php include ('modal_signup_login.php');?>
 <head>
   <title>i-Mark Watermarking System</title>
   <meta charset="utf-8">

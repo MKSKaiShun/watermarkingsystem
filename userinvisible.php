@@ -138,7 +138,7 @@ h4{margin-top : 0px;}
         <div class='step'>Choose an image</div>
         <img id='preview' class='preview hide' />
         <div class='sectionbody'>
-            <input type='file' id='file' />
+            <input type='file' id='file' accept="image/*" />
         </div>
     </div>
     <div id='choose' class='section dark hide'>
@@ -173,6 +173,7 @@ h4{margin-top : 0px;}
 	
 	<form method="POST" action="./SaveImage.php">
 	<input type="hidden" name="imessage" id="imessage" value="" />
+	<input type="hidden" name="data" id="data" value="" />
 	<button name="SaveImage" class="submit">Save Into Database</button>
 	</form>
 	</div>

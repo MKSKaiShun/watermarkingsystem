@@ -72,6 +72,15 @@ h4{margin-top : 0px;}
   </head>
 
 <body background="./images/Cool-Grey-Background.jpg">
+<?php
+
+			if(isset($_SESSION['user']))
+				{
+					include("403.html");
+					exit(" ");
+				}
+			
+?>
 
 				<nav class="navbar navbar-inverse visible-xs">
 					<div class="container-fluid">
