@@ -5,7 +5,7 @@ session_start();
 <?php
 
 
-	 define('Server','127.10.146.130');
+	 define('Server','127.13.35.130');
 	 define('Root User', 'admin8nWg8HU');
 	 define('Root Password','eYbE4_Ef1qiR');
 	 define('Database Name','imark');
