@@ -21,16 +21,14 @@ include_once'Dbconnect.php';
     .row.content {height: 600px;}
 	
 	 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content2 {height: 275px;
-	width: 550px;}
-	
-	* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content3 {
-	height: 250px;
-	width: 550px;}
+    .row.content2 {height: 200px;
+	width: 550px;
+	background-color: #1a53ff;
+	margin-top: 20px;}
 	
 	.container2 {height: 300px;
-	width 900px;}
+	width: 900px;
+	}
 	
 	.boxes{
 		background-color: #cce6ff;
@@ -105,9 +103,9 @@ h4{margin-top : 0px;}
 				<ul class="nav navbar-nav">
 					<li><a href="usermainpage.php">Home</a></li>	
 					<li><a href="uservisible.php">Visible Watermark</a></li>
-					<li class="active"><a href="userinvisible.php">Invisible Watermark</a></li>  
+					<li><a href="userinvisible.php">Invisible Watermark</a></li>  
 					<li><a href="Library.php">Library</a></li>					
-					<li><a href="guidelines.php">Guidelines</a></li>
+					<li class="active"><a href="guidelines.php">Guidelines</a></li>
 					<li><a href="Contactus.php">Contact Us</a></li>
 					<li><button type="button" class="btn btn-info btn-lg"><span class="glyphicon-log-out"></span><a href='logout.php'><font color="white">&nbsp;Logout</font></a></button></li>
 				</ul>
@@ -127,9 +125,9 @@ h4{margin-top : 0px;}
 					<?php if (isset($_SESSION['usr_id'])) { ?>
 						<li><a href="usermainpage.php"><h4><font color="white">Home</font></h4></a></li>
 						<li><a href="uservisible.php"><h4><font color="white">Visible Watermark</font></h4></a></li>
-						<li class="active"><a href="userinvisible.php"><h4><font color="white">Invisible Watermark</font></h4></a></li>   
+						<li><a href="userinvisible.php"><h4><font color="white">Invisible Watermark</font></h4></a></li>   
 						<li><a href="Library.php"><h4><font color="white">Library</font></h4></a></li>						
-						<li><a href="guidelines.php"><h4><font color="white">Guidelines</font></h4></a></li>
+						<li class="active"><a href="guidelines.php"><h4><font color="white">Guidelines</font></h4></a></li>
 						<li><a href="Contactus.php"><h4><font color="white">Contact Us</font></h4></a></li>
 						<li><button type="button" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-log-out"></span><a href='logout.php'><font color="white">&nbsp;Logout</font></a></button></li>
 					</ul><br>
@@ -140,54 +138,55 @@ h4{margin-top : 0px;}
 		
 	<br>
 	
-	<div class="row">
-	
-	<div id='main' class='section dark'>
-        <div class='step'>Choose an image</div>
-        <img id='preview' class='preview hide' />
-        <div class='sectionbody'>
-            <input type='file' id='file' accept="image/*" />
-        </div>
-    </div>
-    <div id='choose' class='section dark hide'>
-        <div class='step'>Encode secret message</div>
-        <div class='sectionbody'>
-            <div class='left'>
-                <textarea id='message' class='message' maxlength='1000'
-                    placeholder='Type hidden message'></textarea>
-                <input type='password' id='password' class='password'
-                    placeholder='Password (optional)' />
-                <button id='encode' class='submit'>Hide message</button>
-            </div>
-            <div class='right'>
-                <input type='password' id='password2' class='password'
-                    placeholder='Password' />
-                <button id='decode' class='submit'>Reveal secret message</button>
-            </div>
-        </div>
-    </div>
-    <div id='reveal' class='section dark hide'>
-        <div class='step'>Hidden message</div>
-        <div id='messageDecoded' class='sectionbody'></div>
+	<div class="col-sm-9">
+      <div class="well">
+		  <center>
+			<h4>Watermarking Your Photos Has Never Been Easier</h4>
+			<a href="uservisible.php" class="btn btn-info btn-lg">Start Watermarking Now<span class="glyphicon glyphicon-menu-right"></span> 
+			</a>         
+		  </center>
+      </div>
+	  
+		<div class="row">
+		<div class="col-sm-offset-2 col-sm-7">
+				<div class="row content2">
+					<br>
+					<img src="./images/visi.jpg"  width="33%" height="80%">
+					<img src="./images/Invisible.jpg"  width="33%" height="80%">
+					<img src="./images/view_image.jpg"  width="32%" height="80%">
+				</div>
+		</div>
+		</div>
 		
-    </div>
-	
-	<div>
-    <canvas id='canvas' class='hide' height="250" width="350"></canvas>
-	
+		<div class="row">
+		<div class="col-sm-offset-1 col-sm-5">
+			<div style="background-color:#4dd2ff; margin-top: 20px; padding:8px 8px;">
+				<p>
+					<h2><font color="#ffff1a">Our Mission</font></h2>
+						<h5><font color="white">
+							World Wide Web is an available place where someone can 
+							obtain digital information such as image easily. It became very 
+							simple to make a duplicate copy of digital information, 
+							to manipulate, destroy and spread the data through Internet by impostors. 
+							Hence it is important to protect the integrity of the digital information 
+							from the attacker. Thus, our mission is to provide a place for user to protect 
+							their digital information by implemented steganography technique.
+						</font></h5>
+				</p>
+			</div>
+		</div>
+		
+		<div class="col-sm-5">
+			<div style="background-color:#4dd2ff; margin-top: 20px; padding:8px 6px;">
+			<img src="./images/foother.png"  width="100%" height="37%">
+			</div>
+		</div>
+		
+		</div>
 	</div>
-	<center>
-    <img id='output' height="400" width="500" class="hidden" />
-	</center>
-	
-	<form method="POST" action="./SaveImage.php">
-	<input type="hidden" name="imessage" id="imessage" value="" />
-	<input type="hidden" name="data" id="data" value="" />
-	<input type="hidden" name="Image_key" id="Image_key" value="" />
-	<button name="SaveImage" class="submit">Save Into Database</button>
-	</form>
 	</div>
 </div>
-</div>
+
 </body>
 </html>
+	

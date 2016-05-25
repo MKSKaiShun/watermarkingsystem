@@ -27,6 +27,7 @@ $query = mysql_query("select * from user_data where Password='$Password'
 $rows = mysql_num_rows($query);
 if ($rows == 1) {
 $_SESSION['login_user']=$Username; // Initializing Session
+INSERT INTO dt VALUES(TO_TIMESTAMP_TZ(CURRENT_TIMESTAMP, 'DD-MON-RR HH.MI.SSXFF PM'));
 header("location: usermainpage.php"); // Redirecting To Other Page
 } else {
 $error = "Username or Password is invalid";

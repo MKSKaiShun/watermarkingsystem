@@ -1,14 +1,13 @@
-<!DOCTYPE html>
 <html lang="en">
-<?php include ('modal_signup_login.html');?>
 <head>
   <title>i-Mark Watermarking System</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="./images/myLogo.png">
   <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
   <script src="./css/jquery.min.js"></script>
   <script src="./css/bootstrap.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+
 	<link href="//cdnjs.cloudflare.com/ajax/libs/spectrum/1.7.1/spectrum.min.css" rel="stylesheet">
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
@@ -68,10 +67,10 @@
 							<ul class="nav navbar-nav">
 								<li><a href="mainpage.php">Home</a></li>
 								<li class="active"><a href="visible.php">Try It Free</a></li>
-								<li><a href="#">Guidelines</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#signup"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign up</button></li>
-								<li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; &nbsp;Login&nbsp;</button></li>
+								<li><a href="guide.php">Guidelines</a></li>
+								<li><a href="Contactus.php">Contact Us</a></li>
+								<li><button type="button" class="btn btn-info btn-lg"><a href="Register.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign up</a></button></li>
+								<li><button type="button" class="btn btn-info btn-lg"><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span>&nbsp; &nbsp;Login&nbsp;</a></button></li>
 							 </ul>
 						</div>
 					</div>
@@ -87,10 +86,10 @@
 					<ul class="nav nav-pills nav-stacked">
 						<li><a href="mainpage.php"><h4><font color="white">Home</font></h4></a></li>
 						<li class="active"><a href="visible.php"><h4><font color="white">Try It Free</font></h4></a></li>
-						<li><a href="#section3"><h4><font color="white">Guidelines</font></h4></a></li>
-						<li><a href="#section3"><h4><font color="white">Contact Us</font></h4></a></li>
-						<li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#signup"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign up</button></li>
-						<li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span>&nbsp; &nbsp;Login&nbsp;</button></li>
+						<li><a href="guide.php"><h4><font color="white">Guidelines</font></h4></a></li>
+						<li><a href="Contactus.php"><h4><font color="white">Contact Us</font></h4></a></li>
+						<li><button type="button" class="btn btn-info btn-lg"><a href="Register.php"><span class="glyphicon glyphicon-user"></span><font color="white">&nbsp;Sign up</font></a></button></li>
+						<li><button type="button" class="btn btn-info btn-lg"><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span><font color="white">&nbsp; &nbsp;Login&nbsp;</font></a></button></li>
 						</ul><br>
 			</div>
 			
@@ -137,59 +136,30 @@
 
 
 		<div id="saveModal" class="modal" tabindex="-1" role="dialog">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Save Images</h4>
-			</div>
-			<div class="modal-body">
-				<p>
-					When rendering is complete, you can click on an image to save it.
-				</p>
-				<div class="saveGallery"></div>
-			</div>
-			<div style="background-color:#fff;margin:5px;text-align:center;">
-			<div class="modal-footer">
-				<button class="btn btn-primary btn-lg disabled">
-					<i class="fa fa-file-zip-o"></i>
-					Save All
-				</button>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-
-<div id="basicErrorModal" class="modal" tabindex="-1" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Upgrade to Water Marquee Pro</h4>
-			</div>
-			<div class="modal-body">
-				<p>
-					With our free service, you can watermark up to <strong>5 photos at a time</strong>, and each photo can be up to <strong>3 MB in size</strong>. 
-				</p>
-				<p>
-					Please consider upgrading to our <a href='/pro' target='_'>Pro service</a>. For a one-time cost of $5, you can watermark as many photos as you'd like, with no size restriction.
-				</p>
-				<div class="tooBigList hidden">
-					<p>
-						These photos were too big:
-					</p>
-					<ul></ul>
-				</div>
-				<div class="text-center">
-					<a class="btn btn-success btn-lg" href='/pro' target='_'>Check out Water Marquee Pro →</a>
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Save Images</h4>
+					</div>
+					<div class="modal-body">
+						<p>
+							When rendering is complete, you can click on an image to save it.
+						</p>
+						<div class="saveGallery"></div>
+					</div>
+					<div style="background-color:#fff;margin:5px;text-align:center;">
+						<div class="modal-footer">
+							<button class="btn btn-primary btn-lg disabled">
+								<i class="fa fa-file-zip-o"></i>
+								Save All
+							</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
+
 
 <script type="text/template" id="templateTemplate">
 	{{ if ( type === 'personal' ) { }}
@@ -218,7 +188,6 @@
 
 <script type="text/template" id="viewerLogoPopoverTemplate">
 	<form class="form-horizontal">		
-		
 		<div class="form-group">
 			<label for="size" class="col-md-3 control-label">Scale</label>
 			<div class="col-md-9">
@@ -240,10 +209,16 @@
 
 		<div class="form-group">
 			<label for="visibility" class="col-md-3 control-label">Visibility</label>
-			<div class="col-md-9">
-				<div class="slide"></div>
-				<input type="hidden" class="visibility" value="{{=visibility}}">
-			</div>			
+				<div class="col-md-9">
+					<div class="slide"></div>
+					<input type="hidden" class="visibility" value="{{=visibility}}">
+				</div>	
+			<div class="text-center">
+				<button class="btn btn-danger btn-sm">
+					<i class="fa fa-remove"></i>
+						Delete
+				</button>
+			</div>
 		</div>
 
 	</form>
@@ -315,8 +290,6 @@
 						<option {{= font === 'times' ? 'selected' : ''}} value="times" style="font-family: times;">Times</option>
 						<option {{= font === 'Trebuchet MS' ? 'selected' : ''}} value="Trebuchet MS" style="font-family: 'Trebuchet MS';">Trebuchet MS</option>
 						<option {{= font === 'Verdana' ? 'selected' : ''}} value="Verdana" style="font-family: 'Verdana';">Verdana</option>
-					</optgroup>
-					<optgroup label="Pro Fonts" disabled>
 						<option {{= font === 'Abril Fatface' ? 'selected' : ''}} value="Abril Fatface" style="font-family: Abril Fatface;">Abril Fatface</option>
 						<option {{= font === 'Alegreya' ? 'selected' : ''}} value="Alegreya" style="font-family: Alegreya;">Alegreya</option>
 						<option {{= font === 'Amaranth' ? 'selected' : ''}} value="Amaranth" style="font-family: Amaranth;">Amaranth</option>
@@ -359,8 +332,7 @@
 						<option {{= font === 'Ubuntu' ? 'selected' : ''}} value="Ubuntu" style="font-family: 'Ubuntu';">Ubuntu</option>
 						<option {{= font === 'Vollkorn' ? 'selected' : ''}} value="Vollkorn" style="font-family: 'Vollkorn';">Vollkorn</option>
 						<option {{= font === 'Wire One' ? 'selected' : ''}} value="Wire One" style="font-family: 'Wire One';">Wire One</option>
-						<option {{= font === 'Yellowtail' ? 'selected' : ''}} value="Yellowtail" style="font-family: 'Yellowtail';">Yellowtail</option>
-						
+						<option {{= font === 'Yellowtail' ? 'selected' : ''}} value="Yellowtail" style="font-family: 'Yellowtail';">Yellowtail</option>	
 					</optgroup>
 				</select>
 			</div>
@@ -389,10 +361,10 @@
 <script type="text/template" id="viewerWatermarkTemplate">
 	<div class="watermark" style="background-image:url({{=src}});width:{{=displayWidth()}}px;height:{{=displayHeight()}}px;top:{{=offsetTop}}%;left:{{=offsetLeft}}%;opacity:{{=(visibility/100)}}" data-toggle='popover' data-html="true"></div>
 </script>
-<link href="/stylesheets/vendor/introjs.min.css" rel="stylesheet">
+<link href="./stylesheets/vendor/introjs.min.css" rel="stylesheet">
 
 
-	<script src="javascripts/dist.js"></script>
+	<script src="./javascripts/dist.js"></script>
 
 <script>
 	$('body').css({

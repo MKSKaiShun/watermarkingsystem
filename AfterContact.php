@@ -107,7 +107,7 @@ h4{margin-top : 0px;}
 					<li><a href="uservisible.php">Visible Watermark</a></li>
 					<li class="active"><a href="userinvisible.php">Invisible Watermark</a></li>  
 					<li><a href="Library.php">Library</a></li>					
-					<li><a href="guidelines.php">Guidelines</a></li>
+					<li><a href="#">Guidelines</a></li>
 					<li><a href="Contactus.php">Contact Us</a></li>
 					<li><button type="button" class="btn btn-info btn-lg"><span class="glyphicon-log-out"></span><a href='logout.php'><font color="white">&nbsp;Logout</font></a></button></li>
 				</ul>
@@ -129,7 +129,7 @@ h4{margin-top : 0px;}
 						<li><a href="uservisible.php"><h4><font color="white">Visible Watermark</font></h4></a></li>
 						<li class="active"><a href="userinvisible.php"><h4><font color="white">Invisible Watermark</font></h4></a></li>   
 						<li><a href="Library.php"><h4><font color="white">Library</font></h4></a></li>						
-						<li><a href="guidelines.php"><h4><font color="white">Guidelines</font></h4></a></li>
+						<li><a href="#section3"><h4><font color="white">Guidelines</font></h4></a></li>
 						<li><a href="Contactus.php"><h4><font color="white">Contact Us</font></h4></a></li>
 						<li><button type="button" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-log-out"></span><a href='logout.php'><font color="white">&nbsp;Logout</font></a></button></li>
 					</ul><br>
@@ -137,57 +137,10 @@ h4{margin-top : 0px;}
 					<li><a href="register.php">Sign Up</a></li>
 					<?php } ?>
 			</div>
-		
-	<br>
-	
-	<div class="row">
-	
-	<div id='main' class='section dark'>
-        <div class='step'>Choose an image</div>
-        <img id='preview' class='preview hide' />
-        <div class='sectionbody'>
-            <input type='file' id='file' accept="image/*" />
-        </div>
-    </div>
-    <div id='choose' class='section dark hide'>
-        <div class='step'>Encode secret message</div>
-        <div class='sectionbody'>
-            <div class='left'>
-                <textarea id='message' class='message' maxlength='1000'
-                    placeholder='Type hidden message'></textarea>
-                <input type='password' id='password' class='password'
-                    placeholder='Password (optional)' />
-                <button id='encode' class='submit'>Hide message</button>
-            </div>
-            <div class='right'>
-                <input type='password' id='password2' class='password'
-                    placeholder='Password' />
-                <button id='decode' class='submit'>Reveal secret message</button>
-            </div>
-        </div>
-    </div>
-    <div id='reveal' class='section dark hide'>
-        <div class='step'>Hidden message</div>
-        <div id='messageDecoded' class='sectionbody'></div>
-		
-    </div>
-	
-	<div>
-    <canvas id='canvas' class='hide' height="250" width="350"></canvas>
-	
+			
+			<p>Thank you</p>
+			<button type="button"><a href='usermainpage.php'><font color="white">&nbsp;Mainpage</font></a></button></li>
+		</div>
 	</div>
-	<center>
-    <img id='output' height="400" width="500" class="hidden" />
-	</center>
-	
-	<form method="POST" action="./SaveImage.php">
-	<input type="hidden" name="imessage" id="imessage" value="" />
-	<input type="hidden" name="data" id="data" value="" />
-	<input type="hidden" name="Image_key" id="Image_key" value="" />
-	<button name="SaveImage" class="submit">Save Into Database</button>
-	</form>
-	</div>
-</div>
-</div>
 </body>
 </html>

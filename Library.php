@@ -1,6 +1,23 @@
 <?php
 session_start();
-include_once'Dbconnect.php';
+
+?>
+<?php
+
+	 define('HOST','localhost');
+	 define('USERNAME', 'root');
+	 define('PASSWORD','MKS29089');
+	 define('DB','i-Mark');
+	 
+	 $con = mysqli_connect(HOST,USERNAME,PASSWORD,DB);
+	 if(mysqli_connect_errno())
+	 {
+		 echo "Failed to connect mysql:".mysqli_connect_error();
+	 }
+	  
+	$sql="SELECT * from image";
+	$result=mysqli_query($con,$sql);
+
 ?>
 <html lang="en">
 <head>
@@ -70,6 +87,20 @@ include_once'Dbconnect.php';
     font-size: 16px;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+	background-color:#cce6ff;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #53ff1a;
+}
+
+tr:hover{background-color:#f5f5f5}
+
 h4{margin-top : 0px;}
 
 .nav-pills>li>a:hover{color:#fff;background-color:#00ffcc}
@@ -95,12 +126,12 @@ h4{margin-top : 0px;}
 						</div>
 						<div class="collapse navbar-collapse" id="myNavbar">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="usermainpage.php">Home</a></li>	
+								<li><a href="usermainpage.php">Home</a></li>	
 								<li><a href="uservisible.php">Visible Watermark</a></li>
 								<li><a href="userinvisible.php">Invisible Watermark</a></li>   
-								<li><a href="Library.php">Library</a></li>								
+								<li class="active"><a href="Library.php">Library</a></li>								
 								<li><a href="guidelines.php">Guidelines</a></li>
-								<li><a href="Contactus.php">Contact Us</a></li>
+								<li><a href="#">Contact Us</a></li>
 								<li><button type="button" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-log-out"></span><a href='logout.php'><font color="white">&nbsp;Logout</font></a></button></li>
 							 </ul>
 						</div>
@@ -113,16 +144,16 @@ h4{margin-top : 0px;}
 			<div class="col-sm-3 sidenav hidden-xs">
 				<img src="./images/myLogo.png" width="100" height="80">
 				<h3><font color="#66998c"<p> Watermarking System</p></font></h3>
-				<p class="navbar-text"><h5><font color="white"><?php if (isset($_SESSION['usr_name'])) { echo "Signed in as ".$_SESSION['usr_name'];} ?></font></h5></p>
+				<p class="navbar-text"><h5><font color="white">Signed in as <?php echo $_SESSION['usr_name']; ?></font></h5></p>
 				<br/>
 					<ul class="nav nav-pills nav-stacked">
 					<?php if (isset($_SESSION['usr_id'])) { ?>
-						<li class="active"><a href="usermainpage.php"><h4><font color="white">Home</font></h4></a></li>
+						<li><a href="usermainpage.php"><h4><font color="white">Home</font></h4></a></li>
 						<li><a href="uservisible.php"><h4><font color="white">Visible Watermark</font></h4></a></li>
 						<li><a href="userinvisible.php"><h4><font color="white">Invisible Watermark</font></h4></a></li> 
-						<li><a href="Library.php"><h4><font color="white">Library</font></h4></a></li>						
+						<li class="active"><a href="Library.php"><h4><font color="white">Library</font></h4></a></li>						
 						<li><a href="guidelines.php"><h4><font color="white">Guidelines</font></h4></a></li>
-						<li><a href="Contactus.php"><h4><font color="white">Contact Us</font></h4></a></li>
+						<li><a href="#section3"><h4><font color="white">Contact Us</font></h4></a></li>
 						<li><button type="button" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-log-out"></span><a href='logout.php'><font color="white">&nbsp;Logout</font></a></button></li>
 					</ul><br>
 					<?php } else { ?><li><a href="login.php">Login</a></li>
@@ -134,92 +165,46 @@ h4{margin-top : 0px;}
 	<br>
 	
 	<div class="col-sm-9">
-      <div class="well">
-	  <center>
-        <h4>Watermarking Your Photos Has Never Been Easier</h4>
-		<a href="uservisible.php" class="btn btn-info btn-lg">Start Watermarking Now<span class="glyphicon glyphicon-menu-right"></span> 
-        </a>         
-	  </center>
-	  
-	  
-      </div>
-	  
-		<div class="row">
-			<div class="col-sm-offset-3 col-sm-8">
-				<div class="row content2">
-					<br>
-						<div id="myCarousel" class="carousel slide" data-ride="carousel">
-							<!-- Indicators -->
-							<ol class="carousel-indicators">
-							  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-							  <li data-target="#myCarousel" data-slide-to="1"></li>
-							</ol>
-
-								<!-- Wrapper for slides -->
-								<div class="carousel-inner" role="listbox">
-									<div class="item active">
-										<img src="./images/mainpage_user.png" alt="Chania" width="460" height="345">
-									</div>
-
-									<div class="item">
-										<img src="./images/imageinaimage.jpg" alt="Chania" width="460" height="345">
-									</div>
-
-									<!-- Left and right controls -->
-									<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-									<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-									<span class="sr-only">Previous</span>
-									</a>
-									<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-									<span class="sr-only">Next</span>
-									</a>
-								</div>
-						</div>
-				</div>
-			</div>
-			
-			<div class="row">
-			<div class="col-sm-offset-1 col-sm-10">
-				<div class="boxes">
-				<br/>
-				<div class="row">
-        <div class="col-sm-4">
+	<table>
+	<tr>
+		<th>Images</th>
+		<th>Secret Message</th>
+		<th>Secret Key</th>
+		<th>Time Created</th>
+	</tr>
+	<?php
+		if(mysqli_num_rows($result)>0)
+			{
+				while($row=mysqli_fetch_assoc($result))
+				{
+	?>
+	<tr>
+		<td>
+				<a href="view.php?id=<?php echo $row['id'] ?>"><img src="<?php echo $row['data'] ?>" height="150" width="320" /></a>
+		</td>
+		<td>
+			<?php echo $row['imessage'] ?>
+		</td>
+		<td>
+			<?php echo $row['Image_key'] ?>
+		</td>
+		<td>
+			<?php echo $row['Image_date'] ?>
+		</td>
+	</tr>
+	<?php
 		
-		<center>
-            <img src="./images/nothingtoinstall.jpg" alt="Chania" width="70" height="70">
-			<h3>Nothing to Install</h3>
-			<p>Watermark your photos right in your internet browser.</p>
-		</center>
-        </div>
-		
-        <div class="col-sm-4">
-		
-		<center>
-            <img src="./images/easytouse.jpg" alt="Chania" width="70" height="70">
-			<h3>Easy to Use</h3>
-			<p>Watermark your photos now, for free, forever. Or check out the Pro version for even more coll stuff.<p>
-		</center>
-        </div>
-		
-        <div class="col-sm-4">
-		
-		<center>
-            <img src="./images/customizable.jpg" alt="Chania" width="70" height="70">
-			<h3>Customizable</h3>
-			<p>Adjust your watermark font, size, color, and position until it's perfect.</p>
-		</center>
-        </div>
-		
+				}
+			}
+	else
+	{
+		echo "0 result";
+	}
+	?>
+	</table>
 	</div>
-      </div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+
 	
-	</div>
-</div>
-		
 </body>
 </html>

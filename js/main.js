@@ -86,11 +86,12 @@ var encode = function() {
     alert('Done! When the image appears, save and share it with someone.');
 
     output.src = canvas.toDataURL();
+	$('#output').css('visibility','visible').hide().fadeIn().removeClass('hidden');
 	//document.getElementById('src').value=output.src;
 	document.getElementById('data').value=output.src;
 	
 	document.getElementById('imessage').value=inmessage;
-	document.getElementById('enmessage').value=message;
+	document.getElementById('Image_key').value=password;
 
 };
 

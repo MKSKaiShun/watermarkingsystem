@@ -2,15 +2,18 @@
 	ini_set('mysql_connect_timeout',300);
 	ini_set('default_socket_timeout',300);
 ?>
-
-<!DOCTYPE html>
+<?php
+session_start();
+include_once'Dbconnect.php';
+?>
 <html lang="en">
-<?php include ('modal_signup_login.php');?>
 <head>
   <title>i-Mark Watermarking System</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="./images/myLogo.png">
   <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
   <script src="./css/jquery.min.js"></script>
   <script src="./css/bootstrap.min.js"></script>
 
@@ -22,11 +25,29 @@
 	<link rel="stylesheet" type="text/css" href="./stylesheets/vendor/bootstrap-slider.min.css">
 	<link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
 </head>
-<style>
- /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+ <style>
+  
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 600px;}
 	
-	/* Set gray background color and 100% height */
+	 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content2 {height: 275px;
+	width: 550px;}
+	
+	* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content3 {
+	height: 250px;
+	width: 550px;}
+	
+	.container2 {height: 300px;
+	width 900px;}
+	
+	.boxes{
+		background-color: #cce6ff;
+		height:220px;
+	}
+    
+    /* Set gray background color and 100% height */
     .sidenav{
       background-color: #000000;
 	  opacity: 0.8;
@@ -38,7 +59,20 @@
       .row.content {height: auto;} 
     }
 	
-	  .btn.btn-info.btn-lg {
+ 
+ .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  
+  .well{
+	  background-image: url("./images/images.jpg");
+	  height:97px;
+	  margin-bottom: 0px;
+  }
+  
+  .btn.btn-info.btn-lg {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -48,10 +82,14 @@
     display: inline-block;
     font-size: 16px;
 }
+
+h4{margin-top : 0px;}
+
 .nav-pills>li>a:hover{color:#fff;background-color:#00ffcc}
-</style>
+  </style>
 
 <body background="./images/Cool-Grey-Background.jpg">
+
 
 				<nav class="navbar navbar-inverse visible-xs">
 					<div class="container-fluid">
@@ -62,23 +100,19 @@
 							<span class="icon-bar"></span>                        
 							</button>
 							<a class="navbar-brand">
-								<img src="./images/myLogo.png"  width="50" height="35">
+								<img src="./images/myLogo.png"  width="50" height="25">
 								
 							</a>
 							<h3><font color="#66998c"<p> Watermarking System</p></font></h3>
 						</div>
 						<div class="collapse navbar-collapse" id="myNavbar">
 							<ul class="nav navbar-nav">
-								<li><a href="usermainpage.php">Home</a></li>
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown">Watermark<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-									<li class="active"><a href="uservisible.php">Visible Watermark</a></li>
-									<li><a href="userinvisible.php">Invisible Watermark</a></li>                       
-									</ul>
-								</li>
-								<li><a href="#">Guidelines</a></li>
-								<li><a href="#">Contact Us</a></li>
+								<li><a href="usermainpage.php">Home</a></li>	
+								<li class="active"><a href="uservisible.php">Visible Watermark</a></li>
+								<li><a href="userinvisible.php">Invisible Watermark</a></li>      
+								<li><a href="Library.php">Library</a></li>
+								<li><a href="guidelines.php">Guidelines</a></li>
+								<li><a href="Contactus.php">Contact Us</a></li>
 								<li><button type="button" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-log-out"></span><a href='logout.php'><font color="white">&nbsp;Logout</font></a></button></li>
 							 </ul>
 						</div>
@@ -88,125 +122,94 @@
 <div class="container">
 	<div class="row content">
 		<br/>
-			<div class="col-sm-2 sidenav hidden-xs">
-				<img src="./images/myLogo.png" width="100" height="100">
+			<div class="col-sm-3 sidenav hidden-xs">
+				<img src="./images/myLogo.png" width="100" height="80">
 				<h3><font color="#66998c"<p> Watermarking System</p></font></h3>
+				<p class="navbar-text"><h5><font color="white">Signed in as <?php echo $_SESSION['usr_name']; ?></font></h5></p>
 				<br/>
 					<ul class="nav nav-pills nav-stacked">
+					<?php if (isset($_SESSION['usr_id'])) { ?>
 						<li><a href="usermainpage.php"><h4><font color="white">Home</font></h4></a></li>
-						<li class="dropdown">
-							  <a class="dropdown-toggle" data-toggle="dropdown"><h4><font color="white">Watermark <span class="caret"></span></font></h4></a>
-							  <ul class="dropdown-menu">
-								<li class="active"><a href="uservisible.php">Visible Watermark</a></li>
-								<li><a href="userinvisible.php">Invisible Watermark</a></li>                       
-							  </ul>
-						</li>
-						<li><a href="#section3"><h4><font color="white">Guidelines</font></h4></a></li>
-						<li><a href="#section3"><h4><font color="white">Contact Us</font></h4></a></li>
+						<li class="active"><a href="uservisible.php"><h4><font color="white">Visible Watermark</font></h4></a></li>
+						<li><a href="userinvisible.php"><h4><font color="white">Invisible Watermark</font></h4></a></li>    
+						<li><a href="Library.php"><h4><font color="white">Library</font></h4></a></li>
+						<li><a href="guidelines.php"><h4><font color="white">Guidelines</font></h4></a></li>
+						<li><a href="Contactus.php"><h4><font color="white">Contact Us</font></h4></a></li>
 						<li><button type="button" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-log-out"></span><a href='logout.php'><font color="white">&nbsp;Logout</font></a></button></li>
-						</ul><br>
+					</ul><br>
+					<?php } else { ?><li><a href="login.php">Login</a></li>
+					<li><a href="register.php">Sign Up</a></li>
+					<?php } ?>
 			</div>
 		
 	<br>
 			
-				
-				
-			<div class="col-sm-10" style="height:100px;">
-				<div class="well">
-				<div class="row">
+	<div class="col-sm-9" style="height:100px;">
+		<div class="well">
+		<div class="row">
 			<div id="menu">
-	<nav class="navbar navbar-default">
-		<div class="container" style="width:90%;">
-			<div class="btn-group" role="group" aria-label="...">
-				<button id="addPhotos" type="button" class="btn btn-default btn-header" data-step="1" data-intro="This button will let you select photos from your computer.">
-					<img src="./images/icons/used/Add_image_icon.svg">
-					Add Photos
-				</button>
-				<button id="addText" type="button" class="btn btn-default btn-header disabled imageRequired" data-step="3" data-intro="After you've added your photos, you can <strong>Add Text</strong>, such as your name or your business's name.">
-					<img src="./images/icons/used/edit_text.svg">
-					Add Text
-				</button>
-				<button id="addLogo" type="button" class="btn btn-default btn-header disabled imageRequired" data-step="4" data-intro="You can also <strong>Add Logo</strong> watermarks, such as your company or personal logo image.">
-					<img src="./images/icons/used/add_logo.svg">
-					Add Logo
-				</button>
-				
-				<button id="save" type="button" class="btn btn-default btn-header disabled watermarkRequired" data-toggle="modal" data-target="#saveModal" data-step="6" data-intro="When your done watermarking your photos, click the <strong>Save</strong> button.">
-					<img src="./images/icons/used/save.svg">
-					Save
-				</button>
+			<nav class="navbar navbar-default">
+				<div class="container" style="width:90%;">
+				<div class="btn-group" role="group" aria-label="...">
+					<button id="addPhotos" type="button" class="btn btn-default btn-header" data-step="1" data-intro="This button will let you select photos from your computer.">
+						<img src="./images/icons/used/Add_image_icon.svg">
+						Add Photos
+					</button>
+					<button id="addText" type="button" class="btn btn-default btn-header disabled imageRequired" data-step="3" data-intro="After you've added your photos, you can <strong>Add Text</strong>, such as your name or your business's name.">
+						<img src="./images/icons/used/edit_text.svg">
+						Add Text
+					</button>
+					<button id="addLogo" type="button" class="btn btn-default btn-header disabled imageRequired" data-step="4" data-intro="You can also <strong>Add Logo</strong> watermarks, such as your company or personal logo image.">
+						<img src="./images/icons/used/add_logo.svg">
+						Add Logo
+					</button>
+					
+					<button id="save" type="button" class="btn btn-default btn-header disabled watermarkRequired" data-toggle="modal" data-target="#saveModal" data-step="6" data-intro="When your done watermarking your photos, click the <strong>Save</strong> button.">
+						<img src="./images/icons/used/save.svg">
+						Save
+					</button>
+				</div>
+				</div>
+			</nav>
 			</div>
-			</div>
-			</div>
-			</div>
-			
 		</div>
-	</nav>
-</div>
+		</div>
+	</div>
 			
-			<div class="col-sm-10" >
-				<div class="well">
-				<div class="row">
+	<div class="col-sm-9" >
+		<div class="well">
+		<div class="row">
 				
-						<div id="viewer">
-	<div id="container"></div>
-</div>
-
+		<div id="viewer">
+			<div id="container"></div>
+		</div>
 
 		<div id="saveModal" class="modal" tabindex="-1" role="dialog">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Save Images</h4>
-			</div>
-			<div class="modal-body">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Save Images</h4>
+					</div>
+					
+				<div class="modal-body">
 				<p>
 					When rendering is complete, you can click on an image to save it.
 				</p>
-				<div class="saveGallery"></div>
-			</div>
-			<div style="background-color:#fff;margin:5px;text-align:center;">
-			<div class="modal-footer">
-				<button class="btn btn-primary btn-lg disabled">
-					<i class="fa fa-file-zip-o"></i>
-					Save All
-				</button>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-
-<div id="basicErrorModal" class="modal" tabindex="-1" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Upgrade to Water Marquee Pro</h4>
-			</div>
-			<div class="modal-body">
-				<p>
-					With our free service, you can watermark up to <strong>5 photos at a time</strong>, and each photo can be up to <strong>3 MB in size</strong>. 
-				</p>
-				<p>
-					Please consider upgrading to our <a href='/pro' target='_'>Pro service</a>. For a one-time cost of $5, you can watermark as many photos as you'd like, with no size restriction.
-				</p>
-				<div class="tooBigList hidden">
-					<p>
-						These photos were too big:
-					</p>
-					<ul></ul>
+					<div class="saveGallery"></div>
 				</div>
-				<div class="text-center">
-					<a class="btn btn-success btn-lg" href='/pro' target='_'>Check out Water Marquee Pro →</a>
+				
+				<div style="background-color:#fff;margin:5px;text-align:center;">
+					<div class="modal-footer">
+						<button class="btn btn-primary btn-lg disabled">
+						<i class="fa fa-file-zip-o"></i>
+							Save All
+						</button>
+					</div>
+				</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
 
 <script type="text/template" id="templateTemplate">
 	{{ if ( type === 'personal' ) { }}
@@ -332,8 +335,6 @@
 						<option {{= font === 'times' ? 'selected' : ''}} value="times" style="font-family: times;">Times</option>
 						<option {{= font === 'Trebuchet MS' ? 'selected' : ''}} value="Trebuchet MS" style="font-family: 'Trebuchet MS';">Trebuchet MS</option>
 						<option {{= font === 'Verdana' ? 'selected' : ''}} value="Verdana" style="font-family: 'Verdana';">Verdana</option>
-					</optgroup>
-					<optgroup label="Pro Fonts" disabled>
 						<option {{= font === 'Abril Fatface' ? 'selected' : ''}} value="Abril Fatface" style="font-family: Abril Fatface;">Abril Fatface</option>
 						<option {{= font === 'Alegreya' ? 'selected' : ''}} value="Alegreya" style="font-family: Alegreya;">Alegreya</option>
 						<option {{= font === 'Amaranth' ? 'selected' : ''}} value="Amaranth" style="font-family: Amaranth;">Amaranth</option>
@@ -377,7 +378,6 @@
 						<option {{= font === 'Vollkorn' ? 'selected' : ''}} value="Vollkorn" style="font-family: 'Vollkorn';">Vollkorn</option>
 						<option {{= font === 'Wire One' ? 'selected' : ''}} value="Wire One" style="font-family: 'Wire One';">Wire One</option>
 						<option {{= font === 'Yellowtail' ? 'selected' : ''}} value="Yellowtail" style="font-family: 'Yellowtail';">Yellowtail</option>
-						
 					</optgroup>
 				</select>
 			</div>

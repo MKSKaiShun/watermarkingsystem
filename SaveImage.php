@@ -1,4 +1,7 @@
 <?php
+session_start();
+?>
+<?php
 
 	 define('HOST','localhost');
 	 define('USERNAME', 'root');
@@ -13,14 +16,15 @@
 	 
 	 $imessage=$_POST['imessage'];
 	 $data=$_POST['data'];
+	 $Image_key=$_POST['Image_key'];
 	 
 	 //var_dump($_POST);
 	//exit();
-	$sql="INSERT INTO image(imessage,data) VALUES('$imessage','$data')";
+	$sql="INSERT INTO image(imessage,data,Image_key) VALUES('$imessage','$data','$Image_key')";
 	if(mysqli_query($con,$sql))
 	{
-		//echo "Error: " . mysql_error();
-		echo $imessage;
+		
+		echo header("Location: Library.php");
 	}
 	
 	
