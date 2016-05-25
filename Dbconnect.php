@@ -1,6 +1,6 @@
 <?php
 
-	 define('HOST','127.10.146.130:3306');
+	 define('HOST','127.10.146.130');
 	 define('USERNAME', 'adminKyZq78U');
 	 define('PASSWORD','ZTT9pfUH5VrN');
 	 define('DB','system');
