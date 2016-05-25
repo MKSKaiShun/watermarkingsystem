@@ -1,9 +1,9 @@
 <?php
 
 	 define('HOST','localhost');
-	 define('USERNAME', 'root');
-	 define('PASSWORD','MKS29089');
-	 define('DB','i-Mark');
+	 define('USERNAME', 'adminKyZq78U');
+	 define('PASSWORD','ZTT9pfUH5VrN');
+	 define('DB','system');
 	 
 	 $con = mysqli_connect(HOST,USERNAME,PASSWORD,DB);
 	 if(mysqli_connect_errno())
